@@ -1,19 +1,106 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <!-- meta tags, links to css, etc. -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Generative Design</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Who Am I?</title>
 </head>
+
 <body>
 
-    <!-- visible content goes here -->
-	<h1>Generative Design</h1>
-	<p>See README.md for info</p>
+    <h1>WHO AM I?</h1>
 
-    <!-- load javascript after the page elements render -->
-    <script src="assets/js/main.js"></script>
+    <p>Guess the famous artwork.</p>
+
+    <img id="artwork" src="" alt="Famous artwork" width="400">
+
+    <h2 id="artworkName"></h2>
+
+    <button onclick="generateArtwork()">Generate Artwork</button>
+
+    <script>
+        // List of 10 famous artworks
+        const artworks = [
+            {
+                name: "The Starry Night",
+                artist: "Vincent van Gogh",
+                image: "https://upload.wikimedia.org/wikipedia/commons/e/ea/The_Starry_Night.JPG"
+            },
+            {
+                name: "The Mona Lisa",
+                artist: "Leonardo da Vinci",
+                image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Mona_Lisa.jpg"
+            },
+            {
+                name: "The Great Wave off Kanagawa",
+                artist: "Katsushika Hokusai",
+                image: "https://upload.wikimedia.org/wikipedia/commons/0/0a/The_Great_Wave_off_Kanagawa.jpg"
+            },
+            {
+                name: "Girl with a Pearl Earring",
+                artist: "Johannes Vermeer",
+                image: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Meisje_met_de_parel.jpg"
+            },
+            {
+                name: "The Scream",
+                artist: "Edvard Munch",
+                image: "https://upload.wikimedia.org/wikipedia/commons/f/f4/The_Scream.jpg"
+            },
+            {
+                name: "The Persistence of Memory",
+                artist: "Salvador Dalí",
+                image: "https://upload.wikimedia.org/wikipedia/en/d/dd/The_Persistence_of_Memory.jpg"
+            },
+            {
+                name: "The Birth of Venus",
+                artist: "Sandro Botticelli",
+                image: "https://upload.wikimedia.org/wikipedia/commons/1/1c/Birth_of_Venus_Botticelli.jpg"
+            },
+            {
+                name: "American Gothic",
+                artist: "Grant Wood",
+                image: "https://upload.wikimedia.org/wikipedia/commons/7/71/Grant_DeVolson_Wood_-_American_Gothic.jpg"
+            },
+            {
+                name: "A Sunday Afternoon on the Island of La Grande Jatte",
+                artist: "Georges Seurat",
+                image: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Georges_Seurat_-_A_Sunday_on_La_Grande_Jatte.jpg"
+            },
+            {
+                name: "The Kiss",
+                artist: "Gustav Klimt",
+                image: "https://upload.wikimedia.org/wikipedia/commons/4/40/The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg"
+            }
+        ];
+
+        let previousArtwork = -1;
+
+        function generateArtwork() {
+
+            let randomNumber;
+
+            // Choose a random artwork
+            // without repeating the previous one
+            do {
+                randomNumber = Math.floor(Math.random() * artworks.length);
+            } while (randomNumber === previousArtwork);
+
+            previousArtwork = randomNumber;
+
+            // Get the selected artwork
+            let selectedArtwork = artworks[randomNumber];
+
+            // Display the image
+            document.getElementById("artwork").src =
+                selectedArtwork.image;
+
+            // Display the artwork title
+            document.getElementById("artworkName").textContent =
+                selectedArtwork.name;
+        }
+
+        // Generate an artwork when the page opens
+        generateArtwork();
+
+    </script>
+
 </body>
 </html>
