@@ -2,21 +2,97 @@
 <html>
 <head>
     <title>Who Am I?</title>
+
+    <style>
+        body {
+            background-color: #202020;
+            margin: 0;
+            font-family: Georgia, serif;
+        }
+
+        .container {
+            background-color: white;
+            width: 80%;
+            min-height: 405px;
+            margin: 60px auto;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: "Bodoni MT", Didot, Georgia, serif;
+            font-size: 56px;
+            font-weight: normal;
+            margin: 10px 0 0;
+            color: black;
+        }
+
+        p {
+            font-family: Georgia, serif;
+            font-size: 16px;
+            margin: 0 0 8px;
+            color: black;
+        }
+
+       #artwork {
+    width: 240px;
+    height: 190px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+        #artworkName {
+            font-family: Georgia, serif;
+            font-size: 18px;
+            font-weight: normal;
+            margin-top: 12px;
+            min-height: 22px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 90px;
+            margin-top: 40px;
+        }
+
+        button {
+            background-color: #d9d9d9;
+            border: none;
+            padding: 7px 12px;
+            width: 150px;
+            font-family: "Bodoni MT", Didot, Georgia, serif;
+            font-size: 14px;
+            color: black;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #bdbdbd;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>WHO AM I?</h1>
+    <div class="container">
 
-    <p>Guess the famous artwork.</p>
+        <h1>WHO AM I?</h1>
 
-    <img id="artwork" src="" alt="Famous artwork" width="400">
+        <p>Guess the famous artwork.</p>
 
-    <h2 id="artworkName"></h2>
+        <img id="artwork" src="" alt="Famous artwork">
 
-    <button onclick="generateArtwork()">Generate Artwork</button>
+        <h2 id="artworkName"></h2>
 
-    <button onclick="revealName()">Reveal Name</button>
+        <div class="buttons">
+            <button onclick="generateArtwork()">GENERATE ARTWORK</button>
+
+            <button onclick="revealName()">REVEAL NAME</button>
+        </div>
+
+    </div>
 
     <script>
         // List of famous artworks
@@ -24,7 +100,7 @@
             {
                 name: "The Starry Night",
                 artist: "Vincent van Gogh",
-                image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail"
+                image: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
             },
             {
                 name: "The Mona Lisa",
@@ -54,7 +130,7 @@
             {
                 name: "The Birth of Venus",
                 artist: "Sandro Botticelli",
-                image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/1280px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail"
+                image: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg"
             },
             {
                 name: "American Gothic",
@@ -64,7 +140,7 @@
             {
                 name: "A Sunday Afternoon on the Island of La Grande Jatte",
                 artist: "Georges Seurat",
-                image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/A_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.jpg/500px-A_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail"
+                image: "https://upload.wikimedia.org/wikipedia/commons/7/7d/A_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.jpg"
             },
             {
                 name: "The Kiss",
@@ -74,22 +150,22 @@
             {
                 name: "Guernica",
                 artist: "Pablo Picasso",
-                image: "https://upload.wikimedia.org/wikipedia/en/7/74/PicassoGuernica.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original"
+                image: "https://upload.wikimedia.org/wikipedia/en/7/74/PicassoGuernica.jpg"
             },
             {
                 name: "The Last Supper",
                 artist: "Leonardo da Vinci",
-                image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg/960px-The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail"
+                image: "https://upload.wikimedia.org/wikipedia/commons/4/48/The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg"
             },
             {
                 name: "The Creation of Adam",
                 artist: "Michelangelo",
-                image: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original"
+                image: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg"
             },
             {
                 name: "Nighthawks",
                 artist: "Edward Hopper",
-                image: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Nighthawks_by_Edward_Hopper_1942.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original"
+                image: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Nighthawks_by_Edward_Hopper_1942.jpg"
             }
         ];
 
@@ -97,39 +173,34 @@
         let selectedArtwork;
 
         function generateArtwork() {
-
             let randomNumber;
 
-            // Choose a random artwork
-            // without repeating the previous one
+            // Pick an artwork different from the previous one
             do {
                 randomNumber = Math.floor(Math.random() * artworks.length);
             } while (randomNumber === previousArtwork);
 
             previousArtwork = randomNumber;
-
-            // Select the artwork
             selectedArtwork = artworks[randomNumber];
 
-            // Display the image
+            // Display the artwork
             document.getElementById("artwork").src =
                 selectedArtwork.image;
 
-            // Hide the name until the user reveals it
+            // Hide the answer until Reveal Name is clicked
             document.getElementById("artworkName").textContent = "";
         }
 
         function revealName() {
-
-            // Reveal the artwork name and artist
-            document.getElementById("artworkName").textContent =
-                selectedArtwork.name + " — " + selectedArtwork.artist;
-
+            if (selectedArtwork) {
+                document.getElementById("artworkName").textContent =
+                    selectedArtwork.name + " — " +
+                    selectedArtwork.artist;
+            }
         }
 
-        // Generate an artwork when the page opens
+        // Show an artwork when the page opens
         generateArtwork();
-
     </script>
 
 </body>
